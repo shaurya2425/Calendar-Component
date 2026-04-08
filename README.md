@@ -137,4 +137,3 @@ This component is built as a lightweight, reusable calendar module with a strong
 - The README is intentionally comprehensive to support future integration.
 - The repository is kept minimal and production-ready.
 - No unrelated pages, dashboards, or demo components are included.
-
