@@ -27,7 +27,7 @@ const BinderStrip = () => {
 
 const HangingSystem = () => {
   return (
-    <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[400px] h-[100px] pointer-events-none z-0">
+    <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-[400px] h-[100px] pointer-events-none z-0 hidden lg:block">
       <svg width="400" height="100" viewBox="0 0 400 100" className="opacity-15 overflow-visible">
          {/* Central Pin */}
          <circle cx="200" cy="10" r="4" fill="white" />
@@ -51,7 +51,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-[#0D0D0D] flex items-center justify-center relative overflow-hidden p-12">
+    <div className="min-h-screen min-h-dvh w-full bg-[#0D0D0D] flex items-start lg:items-center justify-center relative overflow-x-hidden overflow-y-auto p-4 py-6 lg:p-12">
       {/* 🌌 Solid Matte Wall */}
       <div className="absolute inset-0 bg-[#0D0D0D] z-[-2]" />
       
@@ -61,9 +61,9 @@ function App() {
         style={{ left: mousePos.x, top: mousePos.y }} 
       />
 
-      {/* Main Binder Card (Centered, Portrait-to-Landscape proportions) */}
-      <div className="relative w-[1240px] h-[780px] max-w-[95vw] max-h-[90vh]">
-         {/* 🧷 Hanging System */}
+      {/* Main Binder Card */}
+      <div className="relative w-full max-w-[1240px] lg:h-[780px]">
+         {/* 🧷 Hanging System - hidden on mobile */}
          <HangingSystem />
 
          {/* 📖 Top Binder Strip */}

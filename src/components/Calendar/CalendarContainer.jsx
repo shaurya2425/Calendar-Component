@@ -68,14 +68,14 @@ const CalendarContainer = () => {
   };
 
   return (
-    <div className="relative w-full h-full flex bg-[#0D0D0D] backdrop-blur-3xl rounded-[2.5rem] border border-white/5 shadow-[0_60px_120px_-30px_rgba(0,0,0,1)] overflow-hidden">
-      {/* LEFT: Hero Section */}
-      <div className="w-[45%] h-full shrink-0">
+    <div className="relative w-full flex flex-col lg:flex-row lg:h-[780px] bg-[#0D0D0D] backdrop-blur-3xl rounded-[2.5rem] border border-white/5 shadow-[0_60px_120px_-30px_rgba(0,0,0,1)] overflow-hidden">
+      {/* LEFT: Hero Section — stacks on top on mobile, 45% width on desktop */}
+      <div className="w-full h-[280px] lg:w-[45%] lg:h-full shrink-0">
          <HeroSection currentDate={currentDate} />
       </div>
 
       {/* RIGHT: Functional Panel */}
-      <div className="flex-1 p-14 lg:p-16 lg:pb-12 flex flex-col h-full overflow-hidden">
+      <div className="flex-1 p-14 lg:p-16 lg:pb-12 flex flex-col overflow-hidden">
         <CalendarGrid 
           days={days} 
           currentDate={currentDate}

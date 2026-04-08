@@ -23,15 +23,13 @@
   background-color: var(--color-wall-matte);
   color: #E5E2E1;
   font-family: var(--font-headline);
-  overflow: hidden; 
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 100dvh;
 }
 
 /* Glassmorphism Binder Card */
