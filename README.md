@@ -1,127 +1,145 @@
 ﻿# Calendar Component
 
-A clean, production-ready React calendar component built with Vite, Tailwind CSS, and Framer Motion. This repository contains a polished, minimal calendar UI with date range selection, persistent notes, holiday support, and responsive animation.
+A production-ready, self-contained React calendar component built with Vite, Tailwind CSS, Framer Motion, and date-fns.
 
-## Overview
+This repo is intentionally focused on one reusable feature module: a clean, interactive calendar UI with date range selection, persistent notes storage, and polished motion.
 
-The project focuses on a single functional calendar feature set:
+## Project Summary
 
-- date range selection with capsule-style highlights
-- today and selected date state handling
-- notes panel for journal entries attached to the current selection
-- localStorage persistence for notes
-- month navigation with animated transitions
-- clean, minimal component structure for fast deployment
+This project delivers:
 
-## Key Implementation Choices
+- **Date range selection** with capsule-style visual continuity.
+- **Today highlighting** with a distinct visual state.
+- **Hover preview** before range finalization.
+- **Month navigation** with animated transitions.
+- **Persistent notes** saved to localStorage.
+- **Minimal architecture** with only the files required for the calendar.
 
-### React + Vite
-- Chosen for fast development startup, optimized production build, and modern frontend patterns.
-- Vite provides lean bundling and instant HMR for component-driven UI updates.
+## Core Features
 
-### Tailwind CSS
-- Used for utility-first styling and rapid layout refinement.
-- Keeps the component codebase compact and easy to maintain.
+### Calendar Interaction
+- Single-click to start selection.
+- Hover to preview a date range.
+- Second click finalizes the range.
+- Clicking an already selected node clears the selection.
+- Fixed 6-row grid layout prevents month layout shifting.
 
-### Framer Motion
-- Provides smooth animation for month transitions, hover effects, and visual selection feedback.
-- Enhances perceived quality without adding heavy complexity.
+### Notes System
+- Notes attach to the currently selected date or date range.
+- Notes are persisted using localStorage.
+- The notes panel shows save feedback and character count.
 
-### date-fns
-- Used for safe date manipulation and formatting.
-- Keeps date logic readable and lightweight.
+### UX & Visual Design
+- Two-panel layout: hero visual panel + calendar panel.
+- Neon-accent interaction system for selection and hover states.
+- Clean typography and spacing for readability.
+- Selectable range and date states are visually consistent.
+
+### Motion & Interaction
+- Smooth slide/fade transitions across month changes.
+- Subtle hover animation on date cells.
+- Motion improves clarity without overwhelming the UI.
 
 ## Project Structure
 
 ```
-src/
-  App.jsx
-  main.jsx
-  components/
-    Calendar/
-      CalendarContainer.jsx
-      CalendarGrid.jsx
-      DateCell.jsx
-      HeroSection.jsx
-      NotesPanel.jsx
-  styles/
-    variables.css
-  utils/
-    dateUtils.js
-    holidays.js
-  index.css
+frontend/
+  src/
+    App.jsx
+    main.jsx
+    index.css
+    styles/
+      variables.css
+    assets/
+      calendar_hero.png
+      hero.png
+      react.svg
+      vite.svg
+    components/
+      Calendar/
+        BinderStrip.jsx
+        CalendarContainer.jsx
+        CalendarGrid.jsx
+        DateCell.jsx
+        HeroSection.jsx
+        NotesPanel.jsx
+    utils/
+      dateUtils.js
+      holidays.js
 ```
 
-### What remains
+## Key Files
 
-- `components/Calendar/` contains the full calendar UI and behavior
-- `utils/` contains date utilities and holiday definitions
-- `styles/` contains global CSS variables and theme tokens
-- `assets/` contains hero and image assets used by the calendar header
+- `App.jsx` — entry layout and visual wrapper for the calendar component.
+- `main.jsx` — React application bootstrap.
+- `CalendarContainer.jsx` — central state hub for current month, selection, hover state, notes, and persisted storage.
+- `CalendarGrid.jsx` — renders the full calendar grid and handles navigation controls.
+- `DateCell.jsx` — atomic date cell with selection, current-day, and hover logic.
+- `HeroSection.jsx` — left-side visual hero presentation with month/year branding.
+- `NotesPanel.jsx` — contextual notes panel with save state and journal entry support.
+- `dateUtils.js` — date formatting and calendar grid generation utilities.
+- `holidays.js` — holiday dataset used for date marker rendering.
 
 ## Getting Started
 
 ### Prerequisites
-
-- Node.js 18+ (recommended)
-- npm or yarn
-- Optional: GitHub CLI for repo management
+- Node.js 18+
+- npm
 
 ### Install dependencies
-
 ```bash
 cd frontend
 npm install
 ```
 
-### Start local development server
-
+### Run locally
 ```bash
 npm run dev
 ```
 
-Open the provided local URL in your browser. The calendar component should render immediately.
-
 ### Build for production
-
 ```bash
 npm run build
 ```
 
-### Preview production build locally
-
+### Preview production build
 ```bash
 npm run preview
 ```
 
-## Features
+## How to Use
 
-- `CalendarContainer.jsx` – orchestrates date selection, navigation, notes, and localStorage save behavior.
-- `CalendarGrid.jsx` – renders the calendar grid, weekday labels, and handles date hover/click events.
-- `DateCell.jsx` – renders each date cell with selection, today highlight, and hover behavior.
-- `HeroSection.jsx` – displays the large month hero header with dynamic current year.
-- `NotesPanel.jsx` – stores notes attached to the current selection and persists them in localStorage.
-
-## Usage
-
-- Click a date to start a selection.
-- Hover over a second date to preview a range.
-- Click a second date to finalize the range.
-- Click the selected node again to clear selection.
-- Enter notes in the journal panel for the selected date/range.
+1. Click a date to start a selection.
+2. Hover over another date to preview the range.
+3. Click the end date to confirm the range.
+4. Click the selected node again to clear selection.
+5. Enter notes for the selected date/range in the journal panel.
 
 ## Validation
 
-This project has been validated by:
+This project is validated for:
 
-- `npm run build` producing a successful production bundle
-- preserving the calendar UI, selection behavior, and note persistence
-- maintaining a minimal folder structure with no unused calendar files
+- successful production build via `npm run build`
+- working calendar render and range selection
+- smooth month transitions
+- proper notes persistence through refresh
+- minimal, clean repository structure
+
+## Why This Approach
+
+This component is built as a lightweight, reusable calendar module with a strong separation between UI and behavior. The focus is on:
+
+- **clarity**: easy-to-understand selection and note behavior
+- **stability**: fixed layout across months
+- **maintainability**: small number of purpose-driven files
+- **experience**: polished motion and visual feedback
 
 ## Notes
 
-This repository is intentionally lean and focused on a single calendar feature set. The result is a production-ready component that can be integrated into larger apps or used as a standalone widget.
+- The README is intentionally comprehensive to support future integration.
+- The repository is kept minimal and production-ready.
+- No unrelated pages, dashboards, or demo components are included.
 
 ## License
 
-This repository has not been assigned a license. Add one as needed for your use case.
+This repository is unlicensed by default. Add a license if you plan to publish or distribute this component.
