@@ -9,7 +9,8 @@ const CalendarContainer = () => {
   // 🏁 Rule 1: Today Default Highlight
   const today = useMemo(() => new Date(), []);
   const [currentDate, setCurrentDate] = useState(today);
-  const [selection, setSelection] = useState({ start: today, end: today });
+  const [selection, setSelection] = useState({ start: null, end: null });
+  const [activeDate, setActiveDate] = useState(today);
   
   const [hoverDate, setHoverDate] = useState(null);
   const [notes, setNotes] = useState({});
@@ -41,12 +42,17 @@ const CalendarContainer = () => {
     const isCurrentSelectionStart = selection.start && isSameDay(date, selection.start);
     const isCurrentSelectionEnd = selection.end && isSameDay(date, selection.end);
 
-    if ((isCurrentSelectionStart || isCurrentSelectionEnd) && !isToday) {
+    if (isCurrentSelectionStart || isCurrentSelectionEnd) {
       setSelection({ start: null, end: null });
+      setActiveDate(isToday ? today : date);
       return;
     }
 
+    setActiveDate(date);
+
     if (!selection.start || (selection.start && selection.end)) {
+      setSelection({ start: date, end: null });
+    } else if (isSameDay(date, selection.start)) {
       setSelection({ start: date, end: null });
     } else {
       if (date < selection.start) {
@@ -83,6 +89,7 @@ const CalendarContainer = () => {
         
         <NotesPanel 
           selection={selection}
+          activeDate={activeDate}
           currentDate={currentDate}
           notes={notes}
           setNotes={setNotes}

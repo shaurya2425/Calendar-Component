@@ -1,29 +1,33 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { isSameDay } from 'date-fns';
 import { formatDisplayDate, formatMonthKey, formatDateKey } from '../../utils/dateUtils';
 
-const NotesPanel = ({ selection, currentDate, notes, setNotes, isSaved }) => {
+const NotesPanel = ({ selection, activeDate, currentDate, notes, setNotes, isSaved }) => {
   const [localValue, setLocalValue] = useState('');
   const timeoutRef = useRef(null);
 
   // 🧠 Rule 8: Notes Context Switch (Instant)
+  const hasRangeSelection = selection.start && selection.end && !isSameDay(selection.start, selection.end);
+  const activeNoteDate = selection.start && (!selection.end || isSameDay(selection.start, selection.end)) ? selection.start : activeDate;
+
   const contextKey = useMemo(() => {
-    if (selection.start && selection.end) {
+    if (hasRangeSelection) {
       const [d1, d2] = [selection.start, selection.end].sort((a, b) => a - b);
       return `range-${formatDateKey(d1)}_${formatDateKey(d2)}`;
     }
-    if (selection.start) return `date-${formatDateKey(selection.start)}`;
+    if (activeNoteDate) return `date-${formatDateKey(activeNoteDate)}`;
     return `month-${formatMonthKey(currentDate)}`;
-  }, [selection, currentDate]);
+  }, [selection, activeDate, currentDate, hasRangeSelection]);
 
   const contextLabel = useMemo(() => {
-    if (selection.start && selection.end) {
+    if (hasRangeSelection) {
       const [d1, d2] = [selection.start, selection.end].sort((a, b) => a - b);
       return `${formatDisplayDate(d1)} – ${formatDisplayDate(d2)}`;
     }
-    if (selection.start) return formatDisplayDate(selection.start);
+    if (activeNoteDate) return formatDisplayDate(activeNoteDate);
     return `Journal Entry`;
-  }, [selection, currentDate]);
+  }, [selection, activeDate, currentDate, hasRangeSelection]);
 
   useEffect(() => {
     setLocalValue(notes[contextKey] || '');
