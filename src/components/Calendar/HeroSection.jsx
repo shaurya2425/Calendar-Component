@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import heroImg from '../../assets/calendar_hero.png';
+import heroImg from '../../assets/mountain_climbing.png';
 import { formatDisplayMonth } from '../../utils/dateUtils';
 
 const getMonthSubtext = (monthIdx, year) => {
