@@ -43,29 +43,28 @@ This project delivers:
 ## Project Structure
 
 ```
-frontend/
-  src/
-    App.jsx
-    main.jsx
-    index.css
-    styles/
-      variables.css
-    assets/
-      calendar_hero.png
-      hero.png
-      react.svg
-      vite.svg
-    components/
-      Calendar/
-        BinderStrip.jsx
-        CalendarContainer.jsx
-        CalendarGrid.jsx
-        DateCell.jsx
-        HeroSection.jsx
-        NotesPanel.jsx
-    utils/
-      dateUtils.js
-      holidays.js
+src/
+  App.jsx
+  main.jsx
+  index.css
+  styles/
+    variables.css
+  assets/
+    calendar_hero.png
+    hero.png
+    react.svg
+    vite.svg
+  components/
+    Calendar/
+      BinderStrip.jsx
+      CalendarContainer.jsx
+      CalendarGrid.jsx
+      DateCell.jsx
+      HeroSection.jsx
+      NotesPanel.jsx
+  utils/
+    dateUtils.js
+    holidays.js
 ```
 
 ## Key Files
@@ -88,7 +87,6 @@ frontend/
 
 ### Install dependencies
 ```bash
-cd frontend
 npm install
 ```
 
