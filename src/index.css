@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Prata&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@theme {
+  --color-neon-orange: #FF8C00;
+  --color-neon-orange-glow: rgba(255, 140, 0, 0.4);
+  --color-neon-orange-dim: rgba(255, 140, 0, 0.15);
+  --color-neon-orange-soft: rgba(255, 140, 0, 0.08);
+
+  --color-wall-matte: #0D0D0D;
+  --color-surface-glass: rgba(255, 255, 255, 0.04);
+  --color-surface-border: rgba(255, 255, 255, 0.06);
+
+  --font-headline: "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  
+  --shadow-neon: 0 0 20px rgba(255, 140, 0, 0.25);
+  --shadow-neon-strong: 0 0 40px rgba(255, 140, 0, 0.4);
+}
+
+:root {
+  background-color: var(--color-wall-matte);
+  color: #E5E2E1;
+  font-family: var(--font-headline);
+  overflow: hidden; 
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glassmorphism Binder Card */
+.binder-card {
+  background: rgba(13, 13, 13, 0.95);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 1);
+}
+
+/* Calligraphy Typography */
+.font-calligraphy {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-neon-orange-dim);
+  border-radius: 10px;
+}
