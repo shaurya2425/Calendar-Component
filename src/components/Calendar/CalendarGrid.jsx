@@ -52,7 +52,7 @@ const CalendarGrid = ({
 
   return (
     <div className="flex flex-col flex-1 relative">
-      {/* 🧭 Header Section: Nav Top-Left (Reference Style) */}
+      {/* Header Section: Nav Top-Left (Reference Style) */}
       <div className="flex justify-between items-center mb-10">
         <div className="flex gap-4">
           <button 
@@ -80,7 +80,7 @@ const CalendarGrid = ({
           ))}
         </div>
 
-        {/* 📅 Grid of Days (Strict 6-row layout) */}
+        {/* Grid of Days (Strict 6-row layout) */}
         <div className="relative min-h-[380px]">
           {/* Range Selection Overlay */}
           <AnimatePresence>

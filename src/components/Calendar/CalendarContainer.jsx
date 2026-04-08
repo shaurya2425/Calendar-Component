@@ -6,7 +6,7 @@ import { getCalendarGrid } from '../../utils/dateUtils';
 import { addMonths, subMonths, isSameDay } from 'date-fns';
 
 const CalendarContainer = () => {
-  // 🏁 Rule 1: Today Default Highlight
+  // Rule 1: Today Default Highlight
   const today = useMemo(() => new Date(), []);
   const [currentDate, setCurrentDate] = useState(today);
   const [selection, setSelection] = useState({ start: null, end: null });
@@ -16,13 +16,13 @@ const CalendarContainer = () => {
   const [notes, setNotes] = useState({});
   const [isSaved, setIsSaved] = useState(true);
 
-  // 💾 Rule 3: Local Storage (Load on Mount)
+  // Rule 3: Local Storage (Load on Mount)
   useEffect(() => {
     const data = localStorage.getItem('calendar-notes');
     if (data) setNotes(JSON.parse(data));
   }, []);
 
-  // 💾 Rule 3: Local Storage (Debounced Save)
+  // Rule 3: Local Storage (Debounced Save)
   useEffect(() => {
     setIsSaved(false);
     const timeout = setTimeout(() => {
@@ -36,7 +36,7 @@ const CalendarContainer = () => {
   // Centralized grid logic
   const days = useMemo(() => getCalendarGrid(currentDate), [currentDate]);
 
-  // 🧠 Rule 6: Range Selection (Strict 2-Click Instant)
+  // Rule 6: Range Selection (Strict 2-Click Instant)
   const handleDateClick = (date) => {
     const isToday = isSameDay(date, today);
     const isCurrentSelectionStart = selection.start && isSameDay(date, selection.start);
@@ -69,12 +69,12 @@ const CalendarContainer = () => {
 
   return (
     <div className="relative w-full h-full flex bg-[#0D0D0D] backdrop-blur-3xl rounded-[2.5rem] border border-white/5 shadow-[0_60px_120px_-30px_rgba(0,0,0,1)] overflow-hidden">
-      {/* 🖼 LEFT: Hero Section */}
+      {/* LEFT: Hero Section */}
       <div className="w-[45%] h-full shrink-0">
          <HeroSection currentDate={currentDate} />
       </div>
 
-      {/* 📅 RIGHT: Functional Panel */}
+      {/* RIGHT: Functional Panel */}
       <div className="flex-1 p-14 lg:p-16 lg:pb-12 flex flex-col h-full overflow-hidden">
         <CalendarGrid 
           days={days} 

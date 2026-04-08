@@ -29,7 +29,7 @@ const HeroSection = ({ currentDate }) => {
 
   return (
     <div className="relative w-full h-full overflow-hidden border-r border-white/5 bg-[#0D0D0D]">
-      {/* 🖼 Background Image with crossfade */}
+      {/* Background Image with crossfade */}
       <AnimatePresence mode="wait">
         <motion.div
            key={monthIdx}

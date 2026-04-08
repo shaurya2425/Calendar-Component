@@ -36,7 +36,7 @@ const DateCell = ({
       onMouseEnter={() => onDateHover(date)}
       onMouseLeave={() => onDateHover(null)}
     >
-      {/* 🎯 1. TODAY DEFAULT HIGHLIGHT (Strict SPEC) */}
+      {/* 1. TODAY DEFAULT HIGHLIGHT (Strict SPEC) */}
       {isToday && !isActiveStart && !isSelectedRangeNode && (
         <motion.div 
            initial={{ opacity: 0 }}
@@ -69,7 +69,7 @@ const DateCell = ({
         {format(date, 'd')}
       </span>
 
-      {/* 🇮🇳 2. HOLIDAY SYSTEM (Cleanup Spec) */}
+      {/* 2. HOLIDAY SYSTEM (Cleanup Spec) */}
       {holiday && (
         <div className="absolute top-2 right-2 z-100">
            {/* 4px small-dot pointer */}

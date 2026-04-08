@@ -7,7 +7,7 @@ const NotesPanel = ({ selection, activeDate, currentDate, notes, setNotes, isSav
   const [localValue, setLocalValue] = useState('');
   const timeoutRef = useRef(null);
 
-  // 🧠 Rule 8: Notes Context Switch (Instant)
+  // Rule 8: Notes Context Switch (Instant)
   const hasRangeSelection = selection.start && selection.end && !isSameDay(selection.start, selection.end);
   const activeNoteDate = selection.start && (!selection.end || isSameDay(selection.start, selection.end)) ? selection.start : activeDate;
 
@@ -45,7 +45,7 @@ const NotesPanel = ({ selection, activeDate, currentDate, notes, setNotes, isSav
 
   return (
     <div className="mt-auto pt-10 border-t border-white/5 flex flex-col gap-5">
-      {/* 🧭 Rule 2: Section Header (Small Caps + Low Opacity Orange) */}
+      {/* Rule 2: Section Header (Small Caps + Low Opacity Orange) */}
       <div className="flex justify-between items-center">
         <div className="flex flex-col">
            <span className="font-headline text-[11px] tracking-[0.4em] uppercase text-neon-orange/40 font-black mb-1">Journal Nodes</span>
@@ -73,7 +73,7 @@ const NotesPanel = ({ selection, activeDate, currentDate, notes, setNotes, isSav
       </div>
 
       <div className="relative min-h-[140px]">
-        {/* 📏 Ruled Lines */}
+        {/* Ruled Lines */}
         <div className="absolute inset-0 flex flex-col pointer-events-none opacity-5">
            {[...Array(6)].map((_, i) => (
              <div key={i} className="h-[32px] border-b border-white/40 w-full" />
