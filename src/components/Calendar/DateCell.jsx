@@ -71,9 +71,9 @@ const DateCell = ({
 
       {/* 🇮🇳 2. HOLIDAY SYSTEM (Cleanup Spec) */}
       {holiday && (
-        <div className="absolute top-2 right-2 z-20">
+        <div className="absolute top-2 right-2 z-100">
            {/* 4px small-dot pointer */}
-           <div className="w-1 h-1 rounded-full bg-[#FF8C00]" />
+           <div className="w-1 h-1 rounded-full bg-[#1eff00]" />
            
            {/* Tooltip on instant hover */}
            <AnimatePresence>
