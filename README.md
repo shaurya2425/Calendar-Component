@@ -138,6 +138,3 @@ This component is built as a lightweight, reusable calendar module with a strong
 - The repository is kept minimal and production-ready.
 - No unrelated pages, dashboards, or demo components are included.
 
-## License
-
-This repository is unlicensed by default. Add a license if you plan to publish or distribute this component.
